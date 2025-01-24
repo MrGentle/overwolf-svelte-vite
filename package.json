@@ -1,0 +1,36 @@
+{
+  "name": "clumsy-svelte-vite",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "inc-version": "node ./build_scripts/incrementVersion.js",
+    "create-opk": "node ./build_scripts/opk.js",
+    "build:overwolf": "npm run build && npm run inc-version && npm run create-opk"
+  },
+  "devDependencies": {
+    "@overwolf/overwolf-api-ts": "^1.3.5",
+    "@overwolf/types": "^3.24.7",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/node": "^22.10.7",
+    "archiver": "^7.0.1",
+    "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.7",
+    "nanostores": "^0.11.3",
+    "overwolf-nanostores": "^1.0.2",
+    "postcss": "^8.5.1",
+    "svelte": "^5.15.0",
+    "svelte-check": "^4.1.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.5"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "lucide-svelte": "^0.474.0"
+  }
+}

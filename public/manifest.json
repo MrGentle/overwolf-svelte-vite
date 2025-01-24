@@ -1,0 +1,89 @@
+{
+    "manifest_version": 1,
+    "type": "WebApp",
+    "meta": {
+        "name": "OW Svelte5",
+        "dock_button_title": "OW Svelte5",
+        "description": "Overwolf boilerplate project for Svelte 5 + Vite",
+        "author": "Gentle",
+        "minimum-overwolf-version": "0.199.0",
+        "icon": "overwolf/IconMouseOver.png",
+        "icon_gray": "overwolf/IconMouseNormal.png",
+        "launcher_icon": "overwolf/desktop-icon.ico",
+        "window_icon": "overwolf/IconMouseOver.png",
+        "version": "0.1.2"
+    },
+    "permissions": [
+        "GameInfo"
+    ],
+    "data": {
+        "start_window": "background",
+        "force_browser": "user",
+        "windows": {
+            "background": {
+                "file": "index.html",
+                "background_optimization": true,
+                "is_background_page": true
+            },
+            "desktop": {
+                "file": "index.html",
+                "desktop_only": true,
+                "native_window": true,
+                "resizable": true,
+                "transparent": true,
+                "override_on_update": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                },
+                "min_size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            },
+            "in_game": {
+                "file": "index.html",
+                "in_game_only": true,
+                "focus_game_takeover": "ReleaseOnHidden",
+                "resizable": true,
+                "transparent": true,
+                "override_on_update": true,
+                "style": "inputPassThrough",
+                "disable_blur": true,
+                "size": {
+                    "width": 1212,
+                    "height": 699
+                },
+                "min_size": {
+                    "width": 1212,
+                    "height": 699
+                }
+            }
+        },
+        "game_targeting": {
+            "type": "dedicated",
+            "game_ids": [
+                21788
+            ]
+        },
+        "game_events": [
+            21788
+        ],
+        "launch_events": [
+            {
+                "event": "GameLaunch",
+                "event_data": {
+                    "game_ids": [
+                        21788
+                    ]
+                },
+                "start_minimized": true
+            }
+        ],
+        "developer": {
+            "enable_auto_refresh": true,
+            "reload_delay": 1000,
+            "filter": "*.*"
+        }
+    }
+}
