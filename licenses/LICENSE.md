@@ -3,8 +3,8 @@ MIT License
 Portions of this software are copyright of their respective authors and released
 under the MIT license:
 
-(ntsd/overwolf-svelte-boilerplate)[https://github.com/ntsd/overwolf-svelte-boilerplate] Copyright (c) 2023 Jirawat Boonkumnerd
-(MrGentle/ow-svelte5-vite) This repository, Copyright 2025 Gentle
+[ntsd/overwolf-svelte-boilerplate](https://github.com/ntsd/overwolf-svelte-boilerplate) Copyright (c) 2023 Jirawat Boonkumnerd
+MrGentle/overwolf-svelte-vite This repository, Copyright 2025 Gentle
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
