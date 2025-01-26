@@ -1,11 +1,11 @@
 <script lang="ts">
-    import { GAME_ID, LAUNCHER_REQUIRED_FEATURES, WINDOWS_NAMES } from "@/consts";
+    import { GAME_ID, LAUNCER_IDS, LAUNCHER_REQUIRED_FEATURES, WINDOWS_NAMES } from "@/consts";
     import { getWindow } from "@/utils/getWindow";
     import { runningGameAtom } from "overwolf-nanostores";
     import { setLauncherEventRequiredFeatures } from "overwolf-nanostores";
 
     runningGameAtom.subscribe((runningGame) => {
-        const isGameRunning = runningGame && runningGame.classId === GAME_ID.NOITA;
+        const isGameRunning = runningGame && Object.values(GAME_ID).includes(runningGame.classId);
 
         if (isGameRunning) {
             getWindow(WINDOWS_NAMES.IN_GAME).then((window) => {
@@ -18,7 +18,7 @@
         }
     });
 
-    setLauncherEventRequiredFeatures(GAME_ID.NOITA, LAUNCHER_REQUIRED_FEATURES);
+    setLauncherEventRequiredFeatures(LAUNCER_IDS.LOL_LAUNCHER, LAUNCHER_REQUIRED_FEATURES);
 </script>
 
 <h3>Background</h3>

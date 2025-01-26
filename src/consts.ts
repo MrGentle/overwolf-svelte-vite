@@ -8,8 +8,17 @@ export const WINDOWS_NAMES = {
     IN_GAME: "in_game",
 };
 
+export const HOTKEYS = {
+    HIDE_INGAME_WINDOW: "hide_ingame_window",
+};
+
 export const START_WINDOW = WINDOWS_NAMES.BACKGROUND;
 
 export const GAME_ID = {
     NOITA: 21788,
+    LOL_GAME: 5426,
+};
+
+export const LAUNCER_IDS = {
+    LOL_LAUNCHER: 10902,
 };

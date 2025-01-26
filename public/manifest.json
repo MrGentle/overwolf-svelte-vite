@@ -14,11 +14,19 @@
         "version": "0.1.2"
     },
     "permissions": [
+        "Hotkeys",
         "GameInfo"
     ],
     "data": {
         "start_window": "background",
         "force_browser": "user",
+        "hotkeys": {
+            "hide_ingame_window": {
+                "title": "Show/Hide In-Game Window",
+                "action-type": "toggle",
+                "default": "Ctrl+C"
+            }
+        },
         "windows": {
             "background": {
                 "file": "index.html",
@@ -45,6 +53,7 @@
                 "file": "index.html",
                 "in_game_only": true,
                 "focus_game_takeover": "ReleaseOnHidden",
+                "focus_game_takeover_release_hotkey": "hide_ingame_window",
                 "resizable": true,
                 "transparent": true,
                 "override_on_update": true,
@@ -63,10 +72,14 @@
         "game_targeting": {
             "type": "dedicated",
             "game_ids": [
+                5426,
+                10902,
                 21788
             ]
         },
         "game_events": [
+            5426,
+            10902,
             21788
         ],
         "launch_events": [
@@ -74,6 +87,8 @@
                 "event": "GameLaunch",
                 "event_data": {
                     "game_ids": [
+                        5426,
+                        10902,
                         21788
                     ]
                 },
