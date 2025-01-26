@@ -16,19 +16,14 @@ I have borrowed a bunch of the original functionality from said project.
 - Quick development with hot reload and a window swapper in browser
 
 ## Getting started
-
-Clone with Github's "Use this template":
-
-[![use this template](/static/useThisTemplate.svg)](https://github.com/new?template_name=overwolf-svelte-boilerplate&template_owner=ntsd)
-
 Clone with [degit](https://github.com/Rich-Harris/degit):
 
 ```sh
 # make copy of this repository
-npx degit ntsd/overwolf-svelte-boilerplate `my-new-repo`
+npx degit MrGentle/overwolf-svelte-vite "my-new-repo"
 
 # change to project directory
-cd overwolf-svelte-boilerplate
+cd my-new-repo
 
 # install dependencies
 npm i
@@ -36,6 +31,6 @@ npm i
 # build overwolf plugin, you can now use `Load unpacked extension` to test the local plugin at `build`.
 npm run build
 
-# create opk file
-npm run create-opk
+# build publishable version
+npm run build:overwolf
 ```
