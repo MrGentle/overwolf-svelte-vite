@@ -1,4 +1,4 @@
-(overwolf-svelte-boilerplate)[https://github.com/ntsd/overwolf-svelte-boilerplate]
+[overwolf-svelte-boilerplate](https://github.com/ntsd/overwolf-svelte-boilerplate)
 
 MIT License
 
