@@ -8,6 +8,8 @@ export const WINDOWS_NAMES = {
     IN_GAME: "in_game",
 };
 
+export const START_WINDOW = WINDOWS_NAMES.BACKGROUND;
+
 export const GAME_ID = {
     NOITA: 21788,
 };

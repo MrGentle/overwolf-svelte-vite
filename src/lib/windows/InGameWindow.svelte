@@ -6,15 +6,18 @@
     import type { HeaderMeta, HeaderMouseEventHandlers, HeaderWindowFunctions } from "../components/Header.svelte";
     import Header from "../components/Header.svelte";
 
-    const { onDragStart, onMouseMove } = createWindowDragHandler(WINDOWS_NAMES.IN_GAME);
-
     let minimize = false;
 
     // remove this in production to not display debug log
-    setLogLevel("debug");
+    if (import.meta.env.OVERWOLF_ENV == "development") {
+        setLogLevel("debug");
+    }
 
     // set require event features
     setGameEventRequiredFeatures(REQUIRED_FEATURES);
+
+    //Header
+    const { onDragStart, onMouseMove } = createWindowDragHandler(WINDOWS_NAMES.IN_GAME);
 
     async function closeWindow() {
         (await getWindow(WINDOWS_NAMES.IN_GAME)).close();
@@ -26,8 +29,8 @@
 </script>
 
 <div class="flex flex-col h-screen max-h-screen">
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
     <Header meta={headerMeta} mouseEventHandlers={headerMouseEventHandlers} windowFunctions={headerWindowFunctions} />
+    <div>Ingame window</div>
     <div class={`flex h-full flex-col p-2 overflow-y-hidden ${minimize && "hidden"}`}>
         <div class="h-1/2 flex flex-col">
             <div>Events</div>

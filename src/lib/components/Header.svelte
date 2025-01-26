@@ -26,42 +26,41 @@
     }: { meta: HeaderMeta; mouseEventHandlers: HeaderMouseEventHandlers; windowFunctions: HeaderWindowFunctions } = $props();
 </script>
 
-<!-- svelte-ignore a11y_no_static_element_interactions -->
 <header
-    class="flex justify-between items-center cursor-move bg-slate-300 select-none"
+    class="flex justify-between items-center cursor-move bg-slate-100 select-none"
     onmousedown={mouseEventHandlers.onmousedown}
     onmousemove={mouseEventHandlers.onmousemove}
 >
-    <div class="p-2 flex items-center">
+    <div class="px-3 flex items-center">
         {#if meta.logoSrc}
-            <img src={meta.logoSrc} alt="Window logo" class="aspect-square h-8 w-8 object-contain flex-shrink-0 mr-1" />
+            <img src={meta.logoSrc} alt="Window logo" class="aspect-square h-8 w-8 mr-1" />
         {/if}
-        <h3 class="font-bold">{meta.title}</h3>
+        <h1>{meta.title}</h1>
     </div>
-    <div class="">
-        <button class="p-2" onclick={() => (window.location.href = "overwolf://settings")}>
-            <Settings size={20} />
+    <div class="flex">
+        <button class="py-2 px-3 hover:bg-zinc-200 transition-colors" onclick={() => (window.location.href = "overwolf://settings")}>
+            <Settings size={20} strokeWidth={1} />
         </button>
         {#if windowFunctions.minimizeWindow}
             <button
-                class="p-2"
+                class="py-2 px-3 hover:bg-zinc-200 transition-colors"
                 aria-label="Minimize window"
                 onclick={() => {
                     windowFunctions.minimizeWindow!();
                 }}
             >
-                <Minus size={20} />
+                <Minus size={20} strokeWidth={1} />
             </button>
         {/if}
         {#if windowFunctions.closeWindow}
             <button
-                class="p-2"
+                class="py-2 px-3 hover:bg-red-400 hover:text-white transition-colors"
                 aria-label="Close window"
                 onclick={() => {
                     windowFunctions.closeWindow!();
                 }}
             >
-                <X size={20} />
+                <X size={20} strokeWidth={1} />
             </button>
         {/if}
     </div>

@@ -3,7 +3,6 @@
     import { getWindow } from "@/utils/getWindow";
     import { runningGameAtom } from "overwolf-nanostores";
     import { setLauncherEventRequiredFeatures } from "overwolf-nanostores";
-    import DesktopWindow from "./DesktopWindow.svelte";
 
     runningGameAtom.subscribe((runningGame) => {
         const isGameRunning = runningGame && runningGame.classId === GAME_ID.NOITA;
@@ -22,4 +21,4 @@
     setLauncherEventRequiredFeatures(GAME_ID.NOITA, LAUNCHER_REQUIRED_FEATURES);
 </script>
 
-<DesktopWindow />
+<h3>Background</h3>

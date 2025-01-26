@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import { WINDOWS_NAMES } from "./consts";
+import { START_WINDOW } from "./consts";
 
 class MockGepMethods {
     static addListener(callback: (payload?: any) => void): void {}
@@ -20,6 +20,14 @@ class MockCommonMethods {
         callback({ success: true });
     }
 }
+
+interface OverwolfMockWindowInfo {
+    currentWindow: string | null;
+}
+
+export const overwolfMockWindowInfo: OverwolfMockWindowInfo = $state({
+    currentWindow: START_WINDOW,
+});
 
 /**
  *
@@ -76,17 +84,18 @@ const overwolfMock: typeof overwolf = {
     //@ts-ignore
     windows: {
         getCurrentWindow(callback: (result: any) => void): void {
-            callback({ window: { name: WINDOWS_NAMES.BACKGROUND }, success: true });
+            callback({ window: { name: overwolfMockWindowInfo.currentWindow }, success: overwolfMockWindowInfo.currentWindow != null });
         },
         //@ts-ignore
         getMainWindow: () => ({ reduxStore }),
         //@ts-ignore
         obtainDeclaredWindow(windowName: string, callback: (response: any) => void): void {
-            callback({ window: { name: windowName, id: "windowId" }, success: true });
+            callback({ window: { name: windowName, id: windowName }, success: windowName != null });
         },
         //@ts-ignore
         restore(windowId: string, callback: (result: any) => void): void {
-            console.info("Mock restore ");
+            overwolfMockWindowInfo.currentWindow = windowId;
+            console.info(`Mock - Restore window ${windowId}`);
         },
         //@ts-ignore
         maximize(windowId: string, callback: (result: any) => void): void {
@@ -94,10 +103,10 @@ const overwolfMock: typeof overwolf = {
         },
         //@ts-ignore
         close(windowId: string, callback: () => void): void {
-            console.info("Mock close");
+            console.info(`Mock - Close window ${windowId}`);
         }, //@ts-ignore
         minimize(windowId: string, callback: (result: any) => void): void {
-            console.info("Mock minimize");
+            console.info("Mock - Minimize window");
         },
         //@ts-ignore
         onStateChanged: {
@@ -212,7 +221,7 @@ const overwolfMock: typeof overwolf = {
 };
 
 // will using mock if env is development (which add by vite)
-export default process.env.NODE_ENV === "development" &&
+export default import.meta.env.MODE === "development" &&
     Object.defineProperty(window, "overwolf", {
         writable: true,
         value: overwolfMock,

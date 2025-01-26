@@ -1,19 +1,14 @@
 <script lang="ts">
-    import { WINDOWS_NAMES } from "@/consts";
+    import { overwolfMockWindowInfo } from "@/overwolf.dev.mock.svelte";
     import { currentWindowInfoAtom } from "overwolf-nanostores";
-    import BackgroundWindow from "./BackgroundWindow.svelte";
-    import DesktopWindow from "./DesktopWindow.svelte";
-    import InGameWindow from "./InGameWindow.svelte";
+    import DevBar from "../components/DevBar.svelte";
+    import Swapper from "./Swapper.svelte";
+
+    let currentWindow = $state(() => (import.meta.env.MODE == "development" ? overwolfMockWindowInfo.currentWindow : $currentWindowInfoAtom?.name));
 </script>
 
-{#if $currentWindowInfoAtom}
-    {#if $currentWindowInfoAtom.name === WINDOWS_NAMES.BACKGROUND}
-        <BackgroundWindow />
-    {:else if $currentWindowInfoAtom.name === WINDOWS_NAMES.DESKTOP}
-        <DesktopWindow />
-    {:else if $currentWindowInfoAtom.name === WINDOWS_NAMES.IN_GAME}
-        <InGameWindow />
-    {:else}
-        <div>Not any page</div>
-    {/if}
+{#if import.meta.env.MODE == "development"}
+    <DevBar />
 {/if}
+
+<Swapper currentWindow={currentWindow()} />
